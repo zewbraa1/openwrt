@@ -1,15 +1,14 @@
 // SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
 /dts-v1/;
 
-/* Bootloader / ATF reservation at base DRAM */
+
 /memreserve/ 0x80000000 0x200000;
 
 #include "en7529.dtsi"
 
-/ {
-	model = "EcoNet AN7529CT";
-	compatible = "econet,an7529ct", "airoha,en7529";
-
+ {
+	model = "EcoNet EN7529CT Evaluation Board";
+	compatible = "airoha,en7529-evb", "airoha,en7529";
 	aliases {
 		serial0 = &uart1;
 	};
@@ -17,13 +16,12 @@
 	chosen {
 		bootargs = "console=ttyS0,115200 earlycon";
 		stdout-path = "serial0:115200n8";
-		/* Restrict Linux usable memory space above ATF reservation */
 		linux,usable-memory-range = <0x80200000 0x1fe00000>;
 	};
 
 	memory@80000000 {
 		device_type = "memory";
-		reg = <0x80000000 0x20000000>; /* 512MB DRAM configuration */
+		reg = <0x80000000 0x20000000>; 
 	};
 };
 
