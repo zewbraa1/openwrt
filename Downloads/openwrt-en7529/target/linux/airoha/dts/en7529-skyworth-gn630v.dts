@@ -1,0 +1,49 @@
+// SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+/dts-v1/;
+#include "en7529.dtsi"
+
+/ {
+	model = "Skyworth GN630V";
+	compatible = "skyworth,gn630v", "airoha,en7529";
+
+	aliases {
+		serial0 = &uart1;
+	};
+
+	chosen {
+		bootargs = "console=ttyS0,115200n8 earlycon";
+		stdout-path = "serial0:115200n8";
+	};
+
+	memory@80000000 {
+		device_type = "memory";
+		reg = <0x0 0x80000000 0x0 0x20000000>; 
+	};
+
+	leds {
+		compatible = "gpio-leds";
+		power { label = "green:power"; gpios = <&pio 11 1>; };
+		internet { label = "green:internet"; gpios = <&pio 1 1>; };
+		pon { label = "green:pon"; gpios = <&pio 6 1>; };
+		los { label = "red:los"; gpios = <&pio 10 1>; };
+		lan1 { label = "green:lan1"; gpios = <&pio 22 1>; };
+		lan2 { label = "green:lan2"; gpios = <&pio 23 1>; };
+		lan3 { label = "green:lan3"; gpios = <&pio 24 1>; };
+		lan4 { label = "green:lan4"; gpios = <&pio 25 1>; };
+	};
+};
+
+&nand {
+	status = "okay";
+	partitions {
+		compatible = "fixed-partitions";
+		#address-cells = <1>;
+		#size-cells = <1>;
+
+		partition@0 { label = "bootloader"; reg = <0x0 0x80000>; read-only; };
+		partition@80000 { label = "romfile"; reg = <0x80000 0x40000>; read-only; };
+		partition@c0000 { label = "firmware"; reg = <0xc0000 0x2000000>; };
+		partition@40c0000 { label = "config"; reg = <0x40c0000 0x800000>; };
+		partition@48c0000 { label = "ubifs"; reg = <0x48c0000 0x2000000>; };
+	};
+};
