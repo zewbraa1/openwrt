@@ -6,9 +6,9 @@ PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL=$(PROJECT_GIT)/project/firmware/qca-wireless.git
-PKG_SOURCE_DATE:=2026-08-15
-PKG_SOURCE_VERSION:=ec3c6fec867e891cb6f0b1ecf7f34ede8730c793
-PKG_MIRROR_HASH:=d35ea28f534e2f72b51ad8295aa114fcb6ec6a2ee3a6bb499f3923f68bf04d1e
+PKG_SOURCE_DATE:=2026-08-26
+PKG_SOURCE_VERSION:=c9c7cd8142ac7655d6ff88af9f91200a472de01e
+PKG_MIRROR_HASH:=29bb3bd7aa2988cd4998a05e41d39a29f8776fc2f28685f95330932245555b34
 PKG_FLAGS:=nonshared
 
 include $(INCLUDE_DIR)/package.mk
@@ -32,6 +32,7 @@ ALLWIFIBOARDS:= \
 	alfa-network_ap120c-ax \
 	aliyun_ap8220 \
 	arcadyan_aw1000 \
+	askey_sbe1v1k \
 	asus_rt-ax89x \
 	buffalo_wxr-5950ax12 \
 	cambiumnetworks_xe34 \
@@ -74,6 +75,7 @@ ALLWIFIBOARDS:= \
 	netgear_rbk350 \
 	netgear_rbk40 \
 	netgear_rbk750 \
+	netgear_rbk850 \
 	netgear_sxk80 \
 	netgear_wax214 \
 	netgear_wax218 \
@@ -231,6 +233,7 @@ $(eval $(call generate-ipq-wifi-package,8devices_mango,8devices Mango))
 $(eval $(call generate-ipq-wifi-package,alfa-network_ap120c-ax,ALFA Network AP120C-AX))
 $(eval $(call generate-ipq-wifi-package,aliyun_ap8220,Aliyun AP8220))
 $(eval $(call generate-ipq-wifi-package,arcadyan_aw1000,Arcadyan AW1000))
+$(eval $(call generate-ipq-wifi-package,askey_sbe1v1k,Askey SBE1V1K))
 $(eval $(call generate-ipq-wifi-package,asus_rt-ax89x,Asus RT-AX89X))
 $(eval $(call generate-ipq-wifi-package,buffalo_wxr-5950ax12,Buffalo WXR-5950AX12))
 $(eval $(call generate-ipq-wifi-package,cambiumnetworks_xe34,Cambium Networks XE3-4))
@@ -273,6 +276,7 @@ $(eval $(call generate-ipq-wifi-package,netgear_rbk20,Netgear RBK20))
 $(eval $(call generate-ipq-wifi-package,netgear_rbk350,Netgear RBK350))
 $(eval $(call generate-ipq-wifi-package,netgear_rbk40,Netgear RBK40))
 $(eval $(call generate-ipq-wifi-package,netgear_rbk750,Netgear RBK750))
+$(eval $(call generate-ipq-wifi-package,netgear_rbk850,Netgear RBK850))
 $(eval $(call generate-ipq-wifi-package,netgear_sxk80,Netgear SXK80))
 $(eval $(call generate-ipq-wifi-package,netgear_wax214,Netgear WAX214))
 $(eval $(call generate-ipq-wifi-package,netgear_wax218,Netgear WAX218))
